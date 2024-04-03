@@ -1,3 +1,4 @@
 #!/bin/bash
 
-code --instell-extension TabbyML.vscode-tabby
+    code --install-extension golang.Go
+    code --install-extension TabbyML.vscode-tabby

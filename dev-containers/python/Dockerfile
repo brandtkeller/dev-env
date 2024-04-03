@@ -4,7 +4,7 @@ FROM dev-base:20240402
 USER root
 WORKDIR /
 # Install needed packages
-RUN apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
+RUN apt install -y zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
 
 WORKDIR /tmp
 
