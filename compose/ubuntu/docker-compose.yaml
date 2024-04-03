@@ -18,3 +18,17 @@ services:
             - driver: nvidia
               count: 1
               capabilities: [gpu]
+
+  go-dev:
+    restart: always
+    image: dev-go:20240402
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "$HOME/persistent/go:/home/dev/work"
+    network_mode: "host"
+
+  python-dev:
+    restart: always
+    image: dev-python:20240402
+    volumes:
+      - "$HOME/persistent/python:/home/dev/work"

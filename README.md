@@ -8,6 +8,9 @@ Containerized development tooling that can integrate with a minimal amount of ho
 2. amd64 and arm64 support for the primary development container
 3. Compose file for development server - hosting multiple services
 
+## Host Machine Requirements
+- Docker Server (Colima on Mac/ Docker on Ubuntu)
+
 ## Tooling
 TabbyML for coding assistant capabilities
 
