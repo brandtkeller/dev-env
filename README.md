@@ -16,7 +16,14 @@ TabbyML for coding assistant capabilities
 
 ## Host Machine Setup
 
+
 ### Tabby Requirements
 - [Nvidia Container Toolkit install](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt)
 - [Nvidia Container Toolkit Docker Steps](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#configuring-docker)
 - [Nvidia Driver Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
+
+## TODO
+- Create alias for CLI
+- Figure out switching between architectures
+- Add dev script/alias to dev-language images
+- Setup ohmyzsh and customize

@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-RUN apt update
+RUN apt update && apt install -y git build-essential
 
 RUN groupadd --gid 1000 dev \
     && useradd --uid 1000 --gid 1000 -m dev \
@@ -11,6 +11,10 @@ RUN groupadd --gid 1000 dev \
     && echo dev ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/dev \
     && chmod 0440 /etc/sudoers.d/dev
 
+RUN echo "source /usr/share/bash-completion/completions/git" >> /home/dev/.bashrc
+
 USER dev
 
 WORKDIR /home/dev
+
+ENV SHELL=/bin/bash
