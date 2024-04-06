@@ -11,6 +11,8 @@ RUN groupadd --gid 1000 dev \
     && echo dev ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/dev \
     && chmod 0440 /etc/sudoers.d/dev
 
+RUN echo "source /usr/share/bash-completion/completions/git" >> /home/dev/.bashrc
+
 USER dev
 
 WORKDIR /home/dev
