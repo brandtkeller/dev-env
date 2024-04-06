@@ -1,4 +1,6 @@
-FROM dev-base:20240402
+ARG TAG
+
+FROM dev-base:$TAG
 
 
 USER root
@@ -14,6 +16,11 @@ RUN wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz && \
     ./configure --enable-optimizations && \
     make install
 
+COPY dev-containers/python/dev.sh /home/dev/
+
+RUN chmod +x /home/dev/dev.sh
+
+RUN echo '\nalias dev_setup="./home/dev/dev.sh"' >> /home/dev/.bashrc
 
 USER dev
 
