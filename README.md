@@ -1,5 +1,7 @@
 # Development Environment
 
+This repository captures my development environment comprised of containerized tools. The experiment here is to drive some discomfort around waht data persists and what tooling is available such that I can continually remove unnecessary tools from my 
+
 ## Intent
 Containerized development tooling that can integrate with a minimal amount of host-installed dependencies. For instance, the `dev-container` workflow for vscode integrating and handling git credentials is a nice mechanism for not needing to copy credentials into the container or multiple places.
 
@@ -14,8 +16,6 @@ Containerized development tooling that can integrate with a minimal amount of ho
 ## Tooling
 TabbyML for coding assistant capabilities
 
-## Host Machine Setup
-
 
 ### Tabby Requirements
 - [Nvidia Container Toolkit install](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html#installing-with-apt)
@@ -23,7 +23,7 @@ TabbyML for coding assistant capabilities
 - [Nvidia Driver Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
 
 ## TODO
-- Create alias for CLI
-- Figure out switching between architectures
-- Add dev script/alias to dev-language images
-- Setup ohmyzsh and customize
+- Setup ohmyzsh and customize/personalize
+- Setup renovate to monitor and update dependencies
+- Improve the build workflow
+- Potentially push images to registry
