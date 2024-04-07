@@ -32,7 +32,8 @@ RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker
 # AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-${ALT_ARCH}.zip" -o "awscliv2.zip" && \
   unzip awscliv2.zip && \
-  ./aws/install
+  ./aws/install && \
+  rm -rf awscliv2.zip aws
 
 # 1password CLI
 RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.26.1/op_linux_${ARCH}_v2.26.1.zip" -O op.zip && \
@@ -42,6 +43,18 @@ RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.26.1/op_linux_${ARCH}_v
   groupadd -f onepassword-cli && \
   chgrp onepassword-cli /usr/local/bin/op && \
   chmod g+s /usr/local/bin/op
+
+# Zarf
+RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/v0.32.6/zarf_v0.32.6_Linux_${ARCH}" && \
+  mv zarf_v0.32.6_Linux_${ARCH} zarf && \
+  chmod +x zarf && \
+  mv zarf /usr/local/bin/zarf
+
+# Lula
+RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.1.0/lula_v0.1.0_Linux_${ARCH}" && \
+  mv lula_v0.1.0_Linux_${ARCH} lula && \
+  chmod +x lula && \
+  mv lula /usr/local/bin/lula
 
 RUN echo '\nalias docker_sock="sudo setfacl -m u:dev:rw /var/run/docker.sock"'>> /home/dev/.bashrc
 

@@ -27,5 +27,5 @@ docker build -f dev-containers/cli/Dockerfile --build-arg TAG=$DATE --build-arg 
 # Build the golang image
 docker build -f dev-containers/golang/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
 
-# Build the python image
-docker build -f dev-containers/python/Dockerfile --build-arg TAG=$DATE -t dev-python:latest -t dev-python:$DATE .
+# # Build the python image
+# docker build -f dev-containers/python/Dockerfile --build-arg TAG=$DATE -t dev-python:latest -t dev-python:$DATE .
