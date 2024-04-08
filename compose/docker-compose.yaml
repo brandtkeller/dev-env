@@ -31,3 +31,8 @@ services:
     restart: always
     command: sleep infinity
     image: dev-python:latest
+
+  node-dev:
+    restart: always
+    command: sleep infinity
+    image: dev-node:latest
