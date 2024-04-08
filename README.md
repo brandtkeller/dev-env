@@ -23,6 +23,7 @@ TabbyML for coding assistant capabilities
 - [Nvidia Driver Installation](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=Ubuntu&target_version=22.04&target_type=deb_local)
 
 ## TODO
+- Think about a weekly nuke script
 - Setup ohmyzsh and customize/personalize
 - Setup renovate to monitor and update dependencies
 - Improve the build workflow
