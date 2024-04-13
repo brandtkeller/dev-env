@@ -56,6 +56,19 @@ RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.1.0/l
   chmod +x lula && \
   mv lula /usr/local/bin/lula
 
+# UDS
+RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/v0.10.4/uds-cli_v0.10.4_Linux_${ARCH}" && \
+  mv uds-cli_v0.10.4_Linux_${ARCH} uds-cli && \
+  chmod +x uds-cli && \
+  mv uds-cli /usr/local/bin/uds-cli
+
+# K3d
+RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/v5.6.3/k3d-linux-${ARCH}" && \
+  mv k3d-linux-${ARCH} k3d && \
+  chmod +x k3d && \
+  mv k3d /usr/local/bin/k3d
+
+
 RUN echo '\nalias docker_sock="sudo setfacl -m u:dev:rw /var/run/docker.sock"'>> /home/dev/.bashrc
 
 USER dev

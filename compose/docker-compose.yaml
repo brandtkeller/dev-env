@@ -31,6 +31,8 @@ services:
     restart: always
     command: sleep infinity
     image: dev-python:latest
+    ports:
+      - 8501:8501
 
   node-dev:
     restart: always
