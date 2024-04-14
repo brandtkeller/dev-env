@@ -45,8 +45,8 @@ RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.26.1/op_linux_${ARCH}_v
   chmod g+s /usr/local/bin/op
 
 # Zarf
-RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/v0.32.6/zarf_v0.32.6_Linux_${ARCH}" && \
-  mv zarf_v0.32.6_Linux_${ARCH} zarf && \
+RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/v0.33.0/zarf_v0.33.0_Linux_${ARCH}" && \
+  mv zarf_v0.33.0_Linux_${ARCH} zarf && \
   chmod +x zarf && \
   mv zarf /usr/local/bin/zarf
 
@@ -58,9 +58,9 @@ RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.1.0/l
 
 # UDS
 RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/v0.10.4/uds-cli_v0.10.4_Linux_${ARCH}" && \
-  mv uds-cli_v0.10.4_Linux_${ARCH} uds-cli && \
-  chmod +x uds-cli && \
-  mv uds-cli /usr/local/bin/uds-cli
+  mv uds-cli_v0.10.4_Linux_${ARCH} uds && \
+  chmod +x uds && \
+  mv uds /usr/local/bin/uds
 
 # K3d
 RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/v5.6.3/k3d-linux-${ARCH}" && \
