@@ -51,8 +51,8 @@ RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/v0.33.0/
   mv zarf /usr/local/bin/zarf
 
 # Lula
-RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.1.0/lula_v0.1.0_Linux_${ARCH}" && \
-  mv lula_v0.1.0_Linux_${ARCH} lula && \
+RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.2.1/lula_v0.2.1_Linux_${ARCH}" && \
+  mv lula_v0.2.1_Linux_${ARCH} lula && \
   chmod +x lula && \
   mv lula /usr/local/bin/lula
 
@@ -70,6 +70,7 @@ RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/v5.6.3/k3d-linux-$
 
 
 RUN echo '\nalias docker_sock="sudo setfacl -m u:dev:rw /var/run/docker.sock"'>> /home/dev/.bashrc
+RUN echo '\nalias k="kubectl"'>> /home/dev/.bashrc
 
 USER dev
 
