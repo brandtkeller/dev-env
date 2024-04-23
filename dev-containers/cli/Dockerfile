@@ -74,4 +74,6 @@ RUN echo '\nalias k="kubectl"'>> /home/dev/.bashrc
 
 USER dev
 
+RUN mkdir -p /home/dev/.config/op
+
 WORKDIR /home/dev

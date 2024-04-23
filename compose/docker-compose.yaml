@@ -25,6 +25,7 @@ services:
     image: dev-go:latest
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
+      - "~/.config:/home/dev/.config"
     network_mode: "host"
 
   python-dev:
