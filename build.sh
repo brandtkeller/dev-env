@@ -17,6 +17,7 @@ fi
 
 DATE=$(date '+%Y%m%d')
 
+set -e
 
 # Build the base image
 docker build -f dev-containers/base/Dockerfile -t dev-base:latest -t dev-base:$DATE .
