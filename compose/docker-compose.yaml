@@ -34,6 +34,10 @@ services:
     image: dev-python:latest
     ports:
       - 8501:8501
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "~/.config:/home/dev/.config"
+    network_mode: "host"
 
   node-dev:
     restart: always

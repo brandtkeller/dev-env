@@ -1,7 +1,6 @@
 ARG TAG
 
-FROM dev-base:$TAG
-
+FROM dev-cli:$TAG
 
 USER root
 WORKDIR /
