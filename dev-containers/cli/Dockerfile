@@ -71,6 +71,7 @@ RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/v5.6.3/k3d-linux-$
 
 RUN echo '\nalias docker_sock="sudo setfacl -m u:dev:rw /var/run/docker.sock"'>> /home/dev/.bashrc
 RUN echo '\nalias k="kubectl"'>> /home/dev/.bashrc
+RUN echo '\nalias one_pass="eval $(op signin)"'>> /home/dev/.bashrc
 
 USER dev
 
