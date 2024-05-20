@@ -8,11 +8,11 @@ ARG ALT_ARCH="x86_64"
 USER root
 
 # Golang
-RUN curl -LO https://go.dev/dl/go1.22.2.linux-${ARCH}.tar.gz && \
-  tar -C /usr/local -xzf go1.22.2.linux-${ARCH}.tar.gz && \
-  rm go1.22.2.linux-${ARCH}.tar.gz
+RUN curl -LO https://go.dev/dl/go1.22.3.linux-${ARCH}.tar.gz && \
+  tar -C /usr/local -xzf go1.22.3.linux-${ARCH}.tar.gz && \
+  rm go1.22.3.linux-${ARCH}.tar.gz
 
-ENV PATH="${PATH}:/usr/local/go/bin"
+ENV PATH="${PATH}:/usr/local/go/bin:/home/dev/go/bin"
 
 # Dev environment setup scripts
 COPY dev-containers/golang/dev.sh /home/dev/
