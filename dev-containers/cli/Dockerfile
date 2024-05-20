@@ -9,7 +9,7 @@ ARG ALT_ARCH="x86_64"
 USER root
 WORKDIR /
 
-RUN apt install -y curl acl unzip wget
+RUN apt install -y curl acl unzip wget rclone
 
 # kubectl
 RUN curl -LO "https://dl.k8s.io/release/v1.29.2/bin/linux/${ARCH}/kubectl" && \
