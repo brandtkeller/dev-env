@@ -52,7 +52,7 @@ RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/v0.34.0/
 
 # Lula
 RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.3.0/lula_v0.3.0_Linux_${ARCH}" && \
-  mv lula_v0.2.1_Linux_${ARCH} lula && \
+  mv lula_v0.3.0_Linux_${ARCH} lula && \
   chmod +x lula && \
   mv lula /usr/local/bin/lula
 
