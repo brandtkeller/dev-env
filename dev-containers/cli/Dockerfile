@@ -45,20 +45,20 @@ RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.26.1/op_linux_${ARCH}_v
   chmod g+s /usr/local/bin/op
 
 # Zarf
-RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/v0.33.0/zarf_v0.33.0_Linux_${ARCH}" && \
-  mv zarf_v0.33.0_Linux_${ARCH} zarf && \
+RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/v0.34.0/zarf_v0.34.0_Linux_${ARCH}" && \
+  mv zarf_v0.34.0_Linux_${ARCH} zarf && \
   chmod +x zarf && \
   mv zarf /usr/local/bin/zarf
 
 # Lula
-RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.2.1/lula_v0.2.1_Linux_${ARCH}" && \
+RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.3.0/lula_v0.3.0_Linux_${ARCH}" && \
   mv lula_v0.2.1_Linux_${ARCH} lula && \
   chmod +x lula && \
   mv lula /usr/local/bin/lula
 
-# UDS
-RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/v0.10.4/uds-cli_v0.10.4_Linux_${ARCH}" && \
-  mv uds-cli_v0.10.4_Linux_${ARCH} uds && \
+# UDS-CLI
+RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/v0.11.0/uds-cli_v0.11.0_Linux_${ARCH}" && \
+  mv uds-cli_v0.11.0_Linux_${ARCH} uds && \
   chmod +x uds && \
   mv uds /usr/local/bin/uds
 
