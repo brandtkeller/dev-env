@@ -9,6 +9,10 @@ ARG ALT_ARCH="x86_64"
 USER root
 WORKDIR /
 
+ENV LULA_VERSION='v0.3.0' \
+    UDS_VERSION='v0.11.1' \
+    ZARF_VERSION='v0.34.0'
+
 RUN apt install -y curl acl unzip wget rclone
 
 # kubectl
@@ -45,20 +49,20 @@ RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.26.1/op_linux_${ARCH}_v
   chmod g+s /usr/local/bin/op
 
 # Zarf
-RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/v0.34.0/zarf_v0.34.0_Linux_${ARCH}" && \
-  mv zarf_v0.34.0_Linux_${ARCH} zarf && \
+RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/${ZARF_VERSION}/zarf_${ZARF_VERSION}_Linux_${ARCH}" && \
+  mv zarf_${ZARF_VERSION}_Linux_${ARCH} zarf && \
   chmod +x zarf && \
   mv zarf /usr/local/bin/zarf
 
 # Lula
-RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/v0.3.0/lula_v0.3.0_Linux_${ARCH}" && \
-  mv lula_v0.3.0_Linux_${ARCH} lula && \
+RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/${LULA_VERSION}/lula_${LULA_VERSION}_Linux_${ARCH}" && \
+  mv lula_${LULA_VERSION}_Linux_${ARCH} lula && \
   chmod +x lula && \
   mv lula /usr/local/bin/lula
 
 # UDS-CLI
-RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/v0.11.0/uds-cli_v0.11.0_Linux_${ARCH}" && \
-  mv uds-cli_v0.11.0_Linux_${ARCH} uds && \
+RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/${UDS_VERSION}/uds-cli_${UDS_VERSION}_Linux_${ARCH}" && \
+  mv uds-cli_${UDS_VERSION}_Linux_${ARCH} uds && \
   chmod +x uds && \
   mv uds /usr/local/bin/uds
 
