@@ -10,10 +10,10 @@ USER root
 WORKDIR /
 
 ENV LULA_VERSION='v0.4.1' \
-    UDS_VERSION='v0.11.1' \
+    UDS_VERSION='v0.12.0' \
     ZARF_VERSION='v0.34.0'
 
-RUN apt install -y curl acl unzip wget rclone
+RUN apt install -y curl acl unzip wget rclone rsync
 
 # kubectl
 RUN curl -LO "https://dl.k8s.io/release/v1.29.2/bin/linux/${ARCH}/kubectl" && \
