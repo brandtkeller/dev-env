@@ -26,20 +26,19 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "~/.config:/home/dev/.config"
-    network_mode: "host"
 
   python-dev:
     restart: always
     command: sleep infinity
     image: dev-python:latest
-    ports:
-      - 8501:8501
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "~/.config:/home/dev/.config"
-    network_mode: "host"
 
   node-dev:
     restart: always
     command: sleep infinity
     image: dev-node:latest
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "~/.config:/home/dev/.config"
