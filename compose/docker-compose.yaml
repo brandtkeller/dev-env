@@ -26,6 +26,7 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "~/.config:/home/dev/.config"
+    network_mode: "host"
 
   python-dev:
     restart: always
@@ -34,6 +35,7 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "~/.config:/home/dev/.config"
+    network_mode: "host"
 
   node-dev:
     restart: always
@@ -42,3 +44,4 @@ services:
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "~/.config:/home/dev/.config"
+    network_mode: "host"
