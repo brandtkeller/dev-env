@@ -9,8 +9,8 @@ ARG ALT_ARCH="x86_64"
 USER root
 WORKDIR /
 
-ENV LULA_VERSION='v0.4.1' \
-    UDS_VERSION='v0.12.0' \
+ENV LULA_VERSION='v0.4.2' \
+    UDS_VERSION='v0.13.0' \
     ZARF_VERSION='v0.34.0'
 
 RUN apt install -y curl acl unzip wget rclone rsync
