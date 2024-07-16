@@ -9,27 +9,32 @@ ARG ALT_ARCH="x86_64"
 USER root
 WORKDIR /
 
-ENV LULA_VERSION='v0.4.2' \
+ENV KUBE_VERSION='v1.30.0' \
+    KIND_VERSION='v0.23.0' \
+    DOCKER_VERSION='27.0.3' \
+    OP_VERSION='v2.29.0' \
+    LULA_VERSION='v0.4.2' \
     UDS_VERSION='v0.13.0' \
-    ZARF_VERSION='v0.34.0'
+    ZARF_VERSION='v0.34.0' \
+    GH_VERSION='2.52.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
 
-# kubectl
-RUN curl -LO "https://dl.k8s.io/release/v1.29.2/bin/linux/${ARCH}/kubectl" && \
+# kubectl - https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
+RUN curl -LO "https://dl.k8s.io/release/${KUBE_VERSION}/bin/linux/${ARCH}/kubectl" && \
   chmod +x ./kubectl && \
   mv ./kubectl /usr/local/bin/kubectl
 
-# Kind
-RUN curl -Lo ./kind "https://kind.sigs.k8s.io/dl/v0.22.0/kind-linux-${ARCH}" && \
+# Kind - https://github.com/kubernetes-sigs/kind/releases
+RUN curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-darwin-${ARCH}" && \
   chmod +x ./kind && \
   mv ./kind /usr/local/bin/kind
 
 # Docker CLI
-RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker-25.0.3.tgz" && \
-  tar -xf docker-25.0.3.tgz && \
+RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker-${DOCKER_VERSION}.tgz" && \
+  tar -xf docker-${DOCKER_VERSION}.tgz && \
   mv docker/docker /usr/local/bin/docker && \
-  rm -rf docker-25.0.3.tgz docker && \
+  rm -rf docker-${DOCKER_VERSION}.tgz docker && \
   touch /var/run/docker.sock && \
   setfacl -m u:dev:rw /var/run/docker.sock
 
@@ -40,7 +45,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-${ALT_ARCH}.zip" -o "aws
   rm -rf awscliv2.zip aws
 
 # 1password CLI
-RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/v2.26.1/op_linux_${ARCH}_v2.26.1.zip" -O op.zip && \
+RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_VERSION}/op_linux_${ARCH}_${OP_VERSION}}.zip" -O op.zip && \
   unzip -d op op.zip && \
   mv op/op /usr/local/bin/ && \
   rm -r op.zip op && \
@@ -71,6 +76,13 @@ RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/v5.6.3/k3d-linux-$
   mv k3d-linux-${ARCH} k3d && \
   chmod +x k3d && \
   mv k3d /usr/local/bin/k3d
+
+# Github CLI
+RUN curl -LO "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${GH_VERSION}_linux_${ARCH}.tar.gz" && \
+  tar -zxf gh_${GH_VERSION}_linux_${ARCH}.tar.gz && \
+  mv gh_${GH_VERSION}_linux_${ARCH}/bin/gh /usr/local/bin/gh && \
+  rm -rf gh_${GH_VERSION}_linux_${ARCH}.tar.gz && \
+  rm -rf gh_${GH_VERSION}_linux_${ARCH}
 
 
 RUN echo '\nalias docker_sock="sudo setfacl -m u:dev:rw /var/run/docker.sock"'>> /home/dev/.bashrc
