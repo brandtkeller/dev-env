@@ -45,7 +45,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-${ALT_ARCH}.zip" -o "aws
   rm -rf awscliv2.zip aws
 
 # 1password CLI
-RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_VERSION}/op_linux_${ARCH}_${OP_VERSION}}.zip" -O op.zip && \
+RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_VERSION}/op_linux_${ARCH}_${OP_VERSION}.zip" -O op.zip && \
   unzip -d op op.zip && \
   mv op/op /usr/local/bin/ && \
   rm -r op.zip op && \
