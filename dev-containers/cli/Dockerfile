@@ -26,7 +26,7 @@ RUN curl -LO "https://dl.k8s.io/release/${KUBE_VERSION}/bin/linux/${ARCH}/kubect
   mv ./kubectl /usr/local/bin/kubectl
 
 # Kind - https://github.com/kubernetes-sigs/kind/releases
-RUN curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-darwin-${ARCH}" && \
+RUN curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-linux-${ARCH}" && \
   chmod +x ./kind && \
   mv ./kind /usr/local/bin/kind
 
