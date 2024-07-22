@@ -11,11 +11,12 @@ WORKDIR /
 
 ENV KUBE_VERSION='v1.30.0' \
     KIND_VERSION='v0.23.0' \
+    K3D_VERSION='v5.7.2' \
     DOCKER_VERSION='27.0.3' \
     OP_VERSION='v2.29.0' \
-    LULA_VERSION='v0.4.2' \
+    LULA_VERSION='v0.4.3' \
     UDS_VERSION='v0.13.0' \
-    ZARF_VERSION='v0.34.0' \
+    ZARF_VERSION='v0.36.1' \
     GH_VERSION='2.52.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
@@ -72,7 +73,7 @@ RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/${UDS
   mv uds /usr/local/bin/uds
 
 # K3d
-RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/v5.6.3/k3d-linux-${ARCH}" && \
+RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/${K3D_VERSION}/k3d-linux-${ARCH}" && \
   mv k3d-linux-${ARCH} k3d && \
   chmod +x k3d && \
   mv k3d /usr/local/bin/k3d
