@@ -7,7 +7,7 @@ ARG ALT_ARCH="x86_64"
 
 USER root
 
-ENV GO_VERSION='1.22.4'
+ENV GO_VERSION='1.22.5'
 
 # Golang
 RUN curl -LO https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz && \
@@ -21,7 +21,7 @@ COPY dev-containers/golang/dev.sh /home/dev/
 
 RUN chmod +x /home/dev/dev.sh
 
-RUN echo '\nalias dev_setup="./home/dev/dev.sh"' >> /home/dev/.bashrc
+RUN echo '\nalias dev_setup="/home/dev/dev.sh"' >> /home/dev/.bashrc
 
 USER dev
 
