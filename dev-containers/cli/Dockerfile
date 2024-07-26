@@ -14,8 +14,8 @@ ENV KUBE_VERSION='v1.30.0' \
     K3D_VERSION='v5.7.2' \
     DOCKER_VERSION='27.0.3' \
     OP_VERSION='v2.29.0' \
-    LULA_VERSION='v0.4.3' \
-    UDS_VERSION='v0.13.0' \
+    LULA_VERSION='v0.4.4' \
+    UDS_VERSION='v0.14.0' \
     ZARF_VERSION='v0.36.1' \
     GH_VERSION='2.52.0' 
 
