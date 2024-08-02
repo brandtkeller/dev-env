@@ -6,7 +6,7 @@ services:
     image: tabbyml/tabby:0.14.0 # https://github.com/TabbyML/tabby releases and drop the 'v'
     environment:
       - TABBY_DISABLE_USAGE_COLLECTION=1
-    command: serve --model CodeGemma-7B --chat-model Mistral-7B --device cuda
+    command: serve --model CodeGemma-7B --device cuda
     volumes:
       - "$HOME/.tabby:/data"
     ports:
