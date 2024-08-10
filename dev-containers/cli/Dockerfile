@@ -11,13 +11,13 @@ WORKDIR /
 
 ENV KUBE_VERSION='v1.30.0' \
     KIND_VERSION='v0.23.0' \
-    K3D_VERSION='v5.7.2' \
-    DOCKER_VERSION='27.0.3' \
-    OP_VERSION='v2.29.0' \
-    LULA_VERSION='v0.4.4' \
+    K3D_VERSION='v5.7.3' \
+    DOCKER_VERSION='27.1.1' \
+    OP_VERSION='v2.30.0' \
+    LULA_VERSION='v0.5.0' \
     UDS_VERSION='v0.14.0' \
-    ZARF_VERSION='v0.36.1' \
-    GH_VERSION='2.52.0' 
+    ZARF_VERSION='v0.38.1' \
+    GH_VERSION='2.54.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
 
@@ -31,7 +31,7 @@ RUN curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/$
   chmod +x ./kind && \
   mv ./kind /usr/local/bin/kind
 
-# Docker CLI
+# Docker CLI - https://download.docker.com/linux/static/stable
 RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker-${DOCKER_VERSION}.tgz" && \
   tar -xf docker-${DOCKER_VERSION}.tgz && \
   mv docker/docker /usr/local/bin/docker && \
@@ -45,7 +45,7 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-${ALT_ARCH}.zip" -o "aws
   ./aws/install && \
   rm -rf awscliv2.zip aws
 
-# 1password CLI
+# 1password CLI - https://developer.1password.com/docs/cli/get-started/
 RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_VERSION}/op_linux_${ARCH}_${OP_VERSION}.zip" -O op.zip && \
   unzip -d op op.zip && \
   mv op/op /usr/local/bin/ && \
@@ -54,7 +54,7 @@ RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_VERSION}/op_linux_${A
   chgrp onepassword-cli /usr/local/bin/op && \
   chmod g+s /usr/local/bin/op
 
-# Zarf
+# Zarf - https://github.com/zarf-dev/zarf/releases
 RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/${ZARF_VERSION}/zarf_${ZARF_VERSION}_Linux_${ARCH}" && \
   mv zarf_${ZARF_VERSION}_Linux_${ARCH} zarf && \
   chmod +x zarf && \
@@ -66,19 +66,19 @@ RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/${LULA_V
   chmod +x lula && \
   mv lula /usr/local/bin/lula
 
-# UDS-CLI
+# UDS-CLI - https://github.com/defenseunicorns/uds-cli/releases
 RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/${UDS_VERSION}/uds-cli_${UDS_VERSION}_Linux_${ARCH}" && \
   mv uds-cli_${UDS_VERSION}_Linux_${ARCH} uds && \
   chmod +x uds && \
   mv uds /usr/local/bin/uds
 
-# K3d
+# K3d - https://github.com/k3d-io/k3d/releases
 RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/${K3D_VERSION}/k3d-linux-${ARCH}" && \
   mv k3d-linux-${ARCH} k3d && \
   chmod +x k3d && \
   mv k3d /usr/local/bin/k3d
 
-# Github CLI
+# Github CLI - https://github.com/cli/cli/releases
 RUN curl -LO "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${GH_VERSION}_linux_${ARCH}.tar.gz" && \
   tar -zxf gh_${GH_VERSION}_linux_${ARCH}.tar.gz && \
   mv gh_${GH_VERSION}_linux_${ARCH}/bin/gh /usr/local/bin/gh && \

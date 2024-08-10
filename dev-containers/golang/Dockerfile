@@ -7,9 +7,9 @@ ARG ALT_ARCH="x86_64"
 
 USER root
 
-ENV GO_VERSION='1.22.5'
+ENV GO_VERSION='1.22.6'
 
-# Golang
+# Golang - https://go.dev/dl/
 RUN curl -LO https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz && \
   tar -C /usr/local -xzf go${GO_VERSION}.linux-${ARCH}.tar.gz && \
   rm go${GO_VERSION}.linux-${ARCH}.tar.gz
