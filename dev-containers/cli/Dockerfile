@@ -10,7 +10,7 @@ USER root
 WORKDIR /
 
 ENV KUBE_VERSION='v1.30.0' \
-    KIND_VERSION='v0.23.0' \
+    KIND_VERSION='v0.24.0' \
     K3D_VERSION='v5.7.3' \
     DOCKER_VERSION='27.1.1' \
     OP_VERSION='v2.30.0' \
