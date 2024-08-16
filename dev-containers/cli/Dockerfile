@@ -10,6 +10,7 @@ USER root
 WORKDIR /
 
 ENV KUBE_VERSION='v1.30.0' \
+    HELM_VERSION='v3.15.4' \
     KIND_VERSION='v0.24.0' \
     K3D_VERSION='v5.7.3' \
     DOCKER_VERSION='27.1.1' \
@@ -25,6 +26,11 @@ RUN apt install -y curl acl unzip wget rclone rsync
 RUN curl -LO "https://dl.k8s.io/release/${KUBE_VERSION}/bin/linux/${ARCH}/kubectl" && \
   chmod +x ./kubectl && \
   mv ./kubectl /usr/local/bin/kubectl
+
+# helm - https://github.com/helm/helm/releases  
+RUN curl -LO "https://get.helm.sh/helm-${HELM_VERSION}-linux-${ARCH}.tar.gz" && \
+  tar -zxvf helm-${HELM_VERSION}-linux-${ARCH}.tar.gz && \
+  mv linux-${ARCH}/helm /usr/local/bin/helm
 
 # Kind - https://github.com/kubernetes-sigs/kind/releases
 RUN curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-linux-${ARCH}" && \
