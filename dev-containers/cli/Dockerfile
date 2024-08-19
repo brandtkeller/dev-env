@@ -11,6 +11,7 @@ WORKDIR /
 
 ENV KUBE_VERSION='v1.30.0' \
     HELM_VERSION='v3.15.4' \
+    ORA_VERSION='1.2.0' \
     KIND_VERSION='v0.24.0' \
     K3D_VERSION='v5.7.3' \
     DOCKER_VERSION='27.1.1' \
@@ -31,6 +32,10 @@ RUN curl -LO "https://dl.k8s.io/release/${KUBE_VERSION}/bin/linux/${ARCH}/kubect
 RUN curl -LO "https://get.helm.sh/helm-${HELM_VERSION}-linux-${ARCH}.tar.gz" && \
   tar -zxvf helm-${HELM_VERSION}-linux-${ARCH}.tar.gz && \
   mv linux-${ARCH}/helm /usr/local/bin/helm
+
+RUN ciurl -LO "https://github.com/oras-project/oras/releases/download/v${ORA_VERSION}/oras_${ORA_VERSION}_linux_${ARCH}.tar.gz" && \
+  tar -zxvf oras_${ORA_VERSION}_linux_${ARCH}.tar.gz && \
+  mv oras /usr/local/bin/oras
 
 # Kind - https://github.com/kubernetes-sigs/kind/releases
 RUN curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-linux-${ARCH}" && \
