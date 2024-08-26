@@ -16,9 +16,9 @@ ENV KUBE_VERSION='v1.30.0' \
     K3D_VERSION='v5.7.3' \
     DOCKER_VERSION='27.1.1' \
     OP_VERSION='v2.30.0' \
-    LULA_VERSION='v0.5.0' \
+    LULA_VERSION='v0.5.1' \
     UDS_VERSION='v0.14.0' \
-    ZARF_VERSION='v0.38.1' \
+    ZARF_VERSION='v0.38.3' \
     GH_VERSION='2.54.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
@@ -33,7 +33,7 @@ RUN curl -LO "https://get.helm.sh/helm-${HELM_VERSION}-linux-${ARCH}.tar.gz" && 
   tar -zxvf helm-${HELM_VERSION}-linux-${ARCH}.tar.gz && \
   mv linux-${ARCH}/helm /usr/local/bin/helm
 
-RUN ciurl -LO "https://github.com/oras-project/oras/releases/download/v${ORA_VERSION}/oras_${ORA_VERSION}_linux_${ARCH}.tar.gz" && \
+RUN curl -LO "https://github.com/oras-project/oras/releases/download/v${ORA_VERSION}/oras_${ORA_VERSION}_linux_${ARCH}.tar.gz" && \
   tar -zxvf oras_${ORA_VERSION}_linux_${ARCH}.tar.gz && \
   mv oras /usr/local/bin/oras
 

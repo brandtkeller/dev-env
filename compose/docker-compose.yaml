@@ -1,24 +1,6 @@
 version: '3.5'
 
 services:
-  tabby:
-    restart: always
-    image: tabbyml/tabby:0.14.0 # https://github.com/TabbyML/tabby releases and drop the 'v'
-    environment:
-      - TABBY_DISABLE_USAGE_COLLECTION=1
-    command: serve --model CodeGemma-7B --device cuda
-    volumes:
-      - "$HOME/.tabby:/data"
-    ports:
-      - 8080:8080
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
-
   go-dev:
     restart: always
     command: sleep infinity
