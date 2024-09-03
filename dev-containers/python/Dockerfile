@@ -3,21 +3,19 @@ ARG TAG
 FROM dev-cli:$TAG
 
 USER root
+
+# https://www.python.org/downloads/source/
+ENV PYTHON_VERSION='3.12.5'
+
 WORKDIR /
 # Install needed packages
 RUN apt install -y zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget libsqlite3-dev
 
 WORKDIR /tmp
 
-RUN wget https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz && \
-    tar -xf Python-3.11.9.tgz && \
-    cd Python-3.11.9 && \
-    ./configure --enable-loadable-sqlite-extensions --enable-optimizations && \
-    make install
-
-RUN wget https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz && \
-    tar -xf Python-3.12.2.tgz && \
-    cd Python-3.12.2 && \
+RUN wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz && \
+    tar -xf Python-${PYTHON_VERSION}.tgz && \
+    cd Python-${PYTHON_VERSION} && \
     ./configure --enable-loadable-sqlite-extensions --enable-optimizations && \
     make install
 

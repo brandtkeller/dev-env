@@ -1,4 +1,4 @@
 #!/bin/bash
 
-code --install-extension TabbyML.vscode-tabby
 
+echo "Python container setup script"

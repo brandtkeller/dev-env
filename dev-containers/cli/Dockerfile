@@ -9,17 +9,17 @@ ARG ALT_ARCH="x86_64"
 USER root
 WORKDIR /
 
-ENV KUBE_VERSION='v1.30.0' \
+ENV KUBE_VERSION='v1.31.0' \
     HELM_VERSION='v3.15.4' \
     ORA_VERSION='1.2.0' \
     KIND_VERSION='v0.24.0' \
     K3D_VERSION='v5.7.3' \
-    DOCKER_VERSION='27.1.1' \
+    DOCKER_VERSION='27.2.0' \
     OP_VERSION='v2.30.0' \
-    LULA_VERSION='v0.5.1' \
-    UDS_VERSION='v0.14.0' \
+    LULA_VERSION='v0.6.0' \
+    UDS_VERSION='v0.14.2' \
     ZARF_VERSION='v0.38.3' \
-    GH_VERSION='2.54.0' 
+    GH_VERSION='2.55.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
 
@@ -33,6 +33,7 @@ RUN curl -LO "https://get.helm.sh/helm-${HELM_VERSION}-linux-${ARCH}.tar.gz" && 
   tar -zxvf helm-${HELM_VERSION}-linux-${ARCH}.tar.gz && \
   mv linux-${ARCH}/helm /usr/local/bin/helm
 
+# oras - https://github.com/oras-project/oras/releases
 RUN curl -LO "https://github.com/oras-project/oras/releases/download/v${ORA_VERSION}/oras_${ORA_VERSION}_linux_${ARCH}.tar.gz" && \
   tar -zxvf oras_${ORA_VERSION}_linux_${ARCH}.tar.gz && \
   mv oras /usr/local/bin/oras
@@ -50,7 +51,7 @@ RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker
   touch /var/run/docker.sock && \
   setfacl -m u:dev:rw /var/run/docker.sock
 
-# AWS CLI
+# AWS CLI - 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-${ALT_ARCH}.zip" -o "awscliv2.zip" && \
   unzip awscliv2.zip && \
   ./aws/install && \

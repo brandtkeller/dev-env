@@ -25,6 +25,8 @@ RUN echo '\nalias dev_setup="/home/dev/dev.sh"' >> /home/dev/.bashrc
 
 USER dev
 
+RUN go install github.com/go-delve/delve/cmd/dlv@v1.23.0
+
 RUN mkdir -p /home/dev/work
 
 WORKDIR /home/dev/work
