@@ -5,7 +5,7 @@ FROM dev-cli:$TAG
 USER root
 
 # https://www.python.org/downloads/source/
-ENV PYTHON_VERSION='3.12.5'
+ENV PYTHON_VERSION='3.12.6'
 
 WORKDIR /
 # Install needed packages

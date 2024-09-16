@@ -10,16 +10,16 @@ USER root
 WORKDIR /
 
 ENV KUBE_VERSION='v1.31.0' \
-    HELM_VERSION='v3.15.4' \
+    HELM_VERSION='v3.16.1' \
     ORA_VERSION='1.2.0' \
     KIND_VERSION='v0.24.0' \
-    K3D_VERSION='v5.7.3' \
-    DOCKER_VERSION='27.2.0' \
+    K3D_VERSION='v5.7.4' \
+    DOCKER_VERSION='27.2.1' \
     OP_VERSION='v2.30.0' \
-    LULA_VERSION='v0.6.0' \
-    UDS_VERSION='v0.14.2' \
-    ZARF_VERSION='v0.38.3' \
-    GH_VERSION='2.55.0' 
+    LULA_VERSION='v0.7.0' \
+    UDS_VERSION='v0.15.0' \
+    ZARF_VERSION='v0.39.0' \
+    GH_VERSION='2.57.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
 
