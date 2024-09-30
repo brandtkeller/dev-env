@@ -16,9 +16,9 @@ ENV KUBE_VERSION='v1.31.0' \
     K3D_VERSION='v5.7.4' \
     DOCKER_VERSION='27.2.1' \
     OP_VERSION='v2.30.0' \
-    LULA_VERSION='v0.7.0' \
-    UDS_VERSION='v0.15.0' \
-    ZARF_VERSION='v0.39.0' \
+    LULA_VERSION='v0.8.0' \
+    UDS_VERSION='v0.16.0' \
+    ZARF_VERSION='v0.40.1' \
     GH_VERSION='2.57.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
