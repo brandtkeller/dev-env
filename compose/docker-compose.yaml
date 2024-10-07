@@ -5,7 +5,7 @@ services:
     image: dev-go:latest
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "~/.config:/home/dev/.config"
+      - "config:/home/dev/.config"
     network_mode: "host"
 
   python-dev:
@@ -14,7 +14,7 @@ services:
     image: dev-python:latest
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "~/.config:/home/dev/.config"
+      - "config:/home/dev/.config"
     network_mode: "host"
 
   node-dev:
@@ -23,5 +23,8 @@ services:
     image: dev-node:latest
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
-      - "~/.config:/home/dev/.config"
+      - "config:/home/dev/.config"
     network_mode: "host"
+
+volumes:
+  config:
