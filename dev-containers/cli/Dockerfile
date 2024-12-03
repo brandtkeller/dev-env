@@ -16,7 +16,7 @@ ENV KUBE_VERSION='v1.31.0' \
     K3D_VERSION='v5.7.4' \
     DOCKER_VERSION='27.3.1' \
     OP_VERSION='v2.30.0' \
-    LULA_VERSION='v0.11.0' \
+    LULA_VERSION='v0.12.0' \
     UDS_VERSION='v0.19.0' \
     ZARF_VERSION='v0.42.2' \
     GH_VERSION='2.60.1' 
@@ -100,7 +100,7 @@ RUN curl -LO "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${G
 
 RUN echo '\nalias docker_sock="sudo setfacl -m u:dev:rw /var/run/docker.sock"'>> /home/dev/.bashrc
 RUN echo '\nalias k="kubectl"'>> /home/dev/.bashrc
-RUN echo '\nalias one_pass="eval $(op signin)"'>> /home/dev/.bashrc
+# RUN echo '\nalias one_pass="eval $(op signin)"'>> /home/dev/.bashrc
 
 USER dev
 
