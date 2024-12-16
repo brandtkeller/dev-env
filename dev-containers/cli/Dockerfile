@@ -9,16 +9,16 @@ ARG ALT_ARCH="x86_64"
 USER root
 WORKDIR /
 
-ENV KUBE_VERSION='v1.31.0' \
-    HELM_VERSION='v3.16.2' \
-    ORA_VERSION='1.2.0' \
+ENV KUBE_VERSION='v1.32.0' \
+    HELM_VERSION='v3.16.3' \
+    ORA_VERSION='1.2.1' \
     KIND_VERSION='v0.25.0' \
-    K3D_VERSION='v5.7.4' \
-    DOCKER_VERSION='27.3.1' \
-    OP_VERSION='v2.30.0' \
-    LULA_VERSION='v0.12.0' \
-    UDS_VERSION='v0.19.0' \
-    ZARF_VERSION='v0.42.2' \
+    K3D_VERSION='v5.7.5' \
+    DOCKER_VERSION='27.4.0' \
+    OP_VERSION='v2.30.3' \
+    LULA_VERSION='v0.13.0' \
+    UDS_VERSION='v0.19.2' \
+    ZARF_VERSION='v0.45.0' \
     GH_VERSION='2.60.1' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
