@@ -10,16 +10,16 @@ USER root
 WORKDIR /
 
 ENV KUBE_VERSION='v1.32.0' \
-    HELM_VERSION='v3.16.3' \
-    ORA_VERSION='1.2.1' \
-    KIND_VERSION='v0.25.0' \
+    HELM_VERSION='v3.16.4' \
+    ORA_VERSION='1.2.2' \
+    KIND_VERSION='v0.26.0' \
+    DOCKER_VERSION='27.4.1' \
     K3D_VERSION='v5.7.5' \
-    DOCKER_VERSION='27.4.0' \
     OP_VERSION='v2.30.3' \
-    LULA_VERSION='v0.13.0' \
-    UDS_VERSION='v0.19.2' \
+    LULA_VERSION='v0.14.0' \
+    UDS_VERSION='v0.20.0' \
     ZARF_VERSION='v0.45.0' \
-    GH_VERSION='2.60.1' 
+    GH_VERSION='2.64.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
 
@@ -51,6 +51,12 @@ RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker
   touch /var/run/docker.sock && \
   setfacl -m u:dev:rw /var/run/docker.sock
 
+# K3d - https://github.com/k3d-io/k3d/releases
+RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/${K3D_VERSION}/k3d-linux-${ARCH}" && \
+  mv k3d-linux-${ARCH} k3d && \
+  chmod +x k3d && \
+  mv k3d /usr/local/bin/k3d
+
 # AWS CLI - 
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-${ALT_ARCH}.zip" -o "awscliv2.zip" && \
   unzip awscliv2.zip && \
@@ -66,12 +72,6 @@ RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_VERSION}/op_linux_${A
   chgrp onepassword-cli /usr/local/bin/op && \
   chmod g+s /usr/local/bin/op
 
-# Zarf - https://github.com/zarf-dev/zarf/releases
-RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/${ZARF_VERSION}/zarf_${ZARF_VERSION}_Linux_${ARCH}" && \
-  mv zarf_${ZARF_VERSION}_Linux_${ARCH} zarf && \
-  chmod +x zarf && \
-  mv zarf /usr/local/bin/zarf
-
 # Lula
 RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/${LULA_VERSION}/lula_${LULA_VERSION}_Linux_${ARCH}" && \
   mv lula_${LULA_VERSION}_Linux_${ARCH} lula && \
@@ -84,11 +84,11 @@ RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/${UDS
   chmod +x uds && \
   mv uds /usr/local/bin/uds
 
-# K3d - https://github.com/k3d-io/k3d/releases
-RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/${K3D_VERSION}/k3d-linux-${ARCH}" && \
-  mv k3d-linux-${ARCH} k3d && \
-  chmod +x k3d && \
-  mv k3d /usr/local/bin/k3d
+# Zarf - https://github.com/zarf-dev/zarf/releases
+RUN curl -LO "https://github.com/defenseunicorns/zarf/releases/download/${ZARF_VERSION}/zarf_${ZARF_VERSION}_Linux_${ARCH}" && \
+  mv zarf_${ZARF_VERSION}_Linux_${ARCH} zarf && \
+  chmod +x zarf && \
+  mv zarf /usr/local/bin/zarf
 
 # Github CLI - https://github.com/cli/cli/releases
 RUN curl -LO "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${GH_VERSION}_linux_${ARCH}.tar.gz" && \
