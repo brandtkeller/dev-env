@@ -1,0 +1,12 @@
+{
+  "folders": [
+          {
+                  "path": "../work/lula"
+          }
+  ],
+  "settings": {
+    "gopls": {
+      "formatting.local": "github.com/defenseunicorns/lula/"
+    }
+  }
+}

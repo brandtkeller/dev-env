@@ -29,4 +29,8 @@ RUN go install github.com/go-delve/delve/cmd/dlv@v1.23.0
 
 RUN mkdir -p /home/dev/work
 
+RUN mkdir -p /home/dev/.vscode
+
+COPY workspaces/* /home/dev/.vscode
+
 WORKDIR /home/dev/work
