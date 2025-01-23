@@ -31,6 +31,6 @@ RUN mkdir -p /home/dev/work
 
 RUN mkdir -p /home/dev/.vscode
 
-COPY workspaces/* /home/dev/.vscode
+COPY dev-containers/golang/workspaces/* /home/dev/.vscode
 
 WORKDIR /home/dev/work
