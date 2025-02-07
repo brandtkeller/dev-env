@@ -14,11 +14,12 @@ ENV KUBE_VERSION='v1.32.0' \
     ORA_VERSION='1.2.2' \
     KIND_VERSION='v0.26.0' \
     DOCKER_VERSION='27.4.1' \
+    DOCKER_BUILDX_VERSION='v0.20.1'\
     K3D_VERSION='v5.7.5' \
     OP_VERSION='v2.30.3' \
     LULA_VERSION='v0.15.0' \
     UDS_VERSION='v0.20.0' \
-    ZARF_VERSION='v0.46.0' \
+    ZARF_VERSION='v0.48.0' \
     GH_VERSION='2.64.0' 
 
 RUN apt install -y curl acl unzip wget rclone rsync
@@ -50,6 +51,11 @@ RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker
   rm -rf docker-${DOCKER_VERSION}.tgz docker && \
   touch /var/run/docker.sock && \
   setfacl -m u:dev:rw /var/run/docker.sock
+
+RUN curl -LO "https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${ARCH}" && \
+  mkdir -p /home/dev/.docker/cli-plugins && \
+  mv buildx-v0.20.1.linux-amd64 /home/dev/.docker/cli-plugins/docker-buildx && \
+  chmod +x /home/dev/.docker/cli-plugins/docker-buildx
 
 # K3d - https://github.com/k3d-io/k3d/releases
 RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/${K3D_VERSION}/k3d-linux-${ARCH}" && \
