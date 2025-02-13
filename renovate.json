@@ -14,57 +14,46 @@
   "packageRules": [
     {
       "matchPackagePatterns": ["KUBE_VERSION"],
-      "datasource": "github-releases",
       "packageName": "kubernetes/kubernetes"
     },
     {
       "matchPackagePatterns": ["HELM_VERSION"],
-      "datasource": "github-releases",
       "packageName": "helm/helm"
     },
     {
       "matchPackagePatterns": ["ORA_VERSION"],
-      "datasource": "github-releases",
       "packageName": "oras-project/oras"
     },
     {
       "matchPackagePatterns": ["KIND_VERSION"],
-      "datasource": "github-releases",
       "packageName": "kubernetes-sigs/kind"
     },
     {
       "matchPackagePatterns": ["DOCKER_VERSION"],
-      "datasource": "github-releases",
       "packageName": "moby/moby"
     },
     {
       "matchPackagePatterns": ["K3D_VERSION"],
-      "datasource": "github-releases",
       "packageName": "k3d-io/k3d"
     },
     {
       "matchPackagePatterns": ["OP_VERSION"],
-      "datasource": "github-releases",
       "packageName": "1Password/op"
     },
     {
       "matchPackagePatterns": ["LULA_VERSION"],
-      "datasource": "github-releases",
       "packageName": "defenseunicorns/lula"
     },
     {
       "matchPackagePatterns": ["UDS_VERSION"],
-      "datasource": "github-releases",
       "packageName": "defenseunicorns/uds-cli"
     },
     {
       "matchPackagePatterns": ["ZARF_VERSION"],
-      "datasource": "github-releases",
       "packageName": "defenseunicorns/zarf"
     },
     {
       "matchPackagePatterns": ["GH_VERSION"],
-      "datasource": "github-releases",
       "packageName": "cli/cli"
     }
   ]
