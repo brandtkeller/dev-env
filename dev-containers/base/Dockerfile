@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-RUN apt update && apt install -y git build-essential vim
+RUN apt update && apt install -y git build-essential vim jq pre-commit
 
 RUN groupadd --gid 1000 dev \
     && useradd --uid 1000 --gid 1000 -m dev \

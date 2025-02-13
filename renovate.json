@@ -1,6 +1,28 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  "extends": ["config:base"],
+  "dockerfile": {
+    "fileMatch": ["Dockerfile"]
+  },
+  "regexManagers": [
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": [
+        "ARG (?<depName>[A-Z_]+)_VERSION=[\"']?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)[\"']?"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "{{#switch depName}}\
+        {{#case 'KUBE'}}kubernetes/kubernetes{{/case}}\
+        {{#case 'HELM'}}helm/helm{{/case}}\
+        {{#case 'ORA'}}oras-project/oras{{/case}}\
+        {{#case 'KIND'}}kubernetes-sigs/kind{{/case}}\
+        {{#case 'DOCKER'}}moby/moby{{/case}}\
+        {{#case 'K3D'}}k3d-io/k3d{{/case}}\
+        {{#case 'OP'}}1Password/op{{/case}}\
+        {{#case 'LULA'}}defenseunicorns/lula{{/case}}\
+        {{#case 'UDS'}}defenseunicorns/uds-cli{{/case}}\
+        {{#case 'ZARF'}}defenseunicorns/zarf{{/case}}\
+        {{#case 'GH'}}cli/cli{{/case}}\
+        {{/switch}}"
+    }
   ]
 }
