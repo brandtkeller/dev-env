@@ -6,23 +6,69 @@
   "regexManagers": [
     {
       "fileMatch": ["Dockerfile"],
-      "matchStrings": [
-        "ARG (?<depName>[A-Z_]+)_VERSION=[\"']?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)[\"']?"
-      ],
-      "datasourceTemplate": "github-releases",
-      "depNameTemplate": "{{#switch depName}}\
-        {{#case 'KUBE'}}kubernetes/kubernetes{{/case}}\
-        {{#case 'HELM'}}helm/helm{{/case}}\
-        {{#case 'ORA'}}oras-project/oras{{/case}}\
-        {{#case 'KIND'}}kubernetes-sigs/kind{{/case}}\
-        {{#case 'DOCKER'}}moby/moby{{/case}}\
-        {{#case 'K3D'}}k3d-io/k3d{{/case}}\
-        {{#case 'OP'}}1Password/op{{/case}}\
-        {{#case 'LULA'}}defenseunicorns/lula{{/case}}\
-        {{#case 'UDS'}}defenseunicorns/uds-cli{{/case}}\
-        {{#case 'ZARF'}}defenseunicorns/zarf{{/case}}\
-        {{#case 'GH'}}cli/cli{{/case}}\
-        {{/switch}}"
+      "matchStrings": ["ARG KUBE_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "kubernetes/kubernetes"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG HELM_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "helm/helm"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG ORA_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "oras-project/oras"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG KIND_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "kubernetes-sigs/kind"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG DOCKER_VERSION=['\"]?(?<currentValue>\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "moby/moby"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG K3D_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "k3d-io/k3d"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG OP_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "1Password/op"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG LULA_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "defenseunicorns/lula"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG UDS_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "defenseunicorns/uds-cli"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG ZARF_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "defenseunicorns/zarf"
+    },
+    {
+      "fileMatch": ["Dockerfile"],
+      "matchStrings": ["ARG GH_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "datasource": "github-releases",
+      "depName": "cli/cli"
     }
   ]
 }
