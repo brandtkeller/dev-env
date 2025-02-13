@@ -7,60 +7,59 @@
     {
       "fileMatch": ["Dockerfile"],
       "matchStrings": [
-        "ARG (?<varName>[A-Z_]+)_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"
+        "ARG (?<packageName>[A-Z]+)=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"
       ],
       "datasourceTemplate": "github-releases",
-      "packageNameTemplate": "{{varName | replace('_VERSION', '') | lowercase}}",
       "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": ["(?i)^kube$"],
+      "matchPackageNames": ["KUBE"],
       "packageName": "kubernetes/kubernetes"
     },
     {
-      "matchPackagePatterns": ["(?i)^helm$"],
+      "matchPackageNames": ["HELM"],
       "packageName": "helm/helm"
     },
     {
-      "matchPackagePatterns": ["(?i)^ora$"],
+      "matchPackageNames": ["ORA"],
       "packageName": "oras-project/oras"
     },
     {
-      "matchPackagePatterns": ["(?i)^kind$"],
+      "matchPackageNames": ["KIND"],
       "packageName": "kubernetes-sigs/kind"
     },
     {
-      "matchPackagePatterns": ["(?i)^docker$"],
+      "matchPackageNames": ["DOCKER"],
       "packageName": "moby/moby"
     },
     {
-      "matchPackagePatterns": ["(?i)^docker_buildx$"],
+      "matchPackageNames": ["DOCKER_BUILDX"],
       "packageName": "docker/buildx"
     },
     {
-      "matchPackagePatterns": ["(?i)^k3d$"],
+      "matchPackageNames": ["K3D"],
       "packageName": "k3d-io/k3d"
     },
     {
-      "matchPackagePatterns": ["(?i)^op$"],
+      "matchPackageNames": ["OP"],
       "packageName": "1Password/op"
     },
     {
-      "matchPackagePatterns": ["(?i)^lula$"],
+      "matchPackageNames": ["LULA"],
       "packageName": "defenseunicorns/lula"
     },
     {
-      "matchPackagePatterns": ["(?i)^uds$"],
+      "matchPackageNames": ["UDS"],
       "packageName": "defenseunicorns/uds-cli"
     },
     {
-      "matchPackagePatterns": ["(?i)^zarf$"],
-      "packageName": "zarf-dev/zarf"
+      "matchPackageNames": ["ZARF"],
+      "packageName": "defenseunicorns/zarf"
     },
     {
-      "matchPackagePatterns": ["(?i)^gh$"],
+      "matchPackageNames": ["GH"],
       "packageName": "cli/cli"
     }
   ]
