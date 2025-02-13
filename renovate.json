@@ -7,59 +7,60 @@
     {
       "fileMatch": ["Dockerfile"],
       "matchStrings": [
-        "ARG (?<packageName>[A-Z_]+_VERSION)=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"
+        "ARG (?<varName>[A-Z_]+)_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"
       ],
       "datasourceTemplate": "github-releases",
+      "packageNameTemplate": "{{varName | replace('_VERSION', '') | lowercase}}",
       "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["KUBE_VERSION"],
+      "matchPackagePatterns": ["(?i)^kube$"],
       "packageName": "kubernetes/kubernetes"
     },
     {
-      "matchPackageNames": ["HELM_VERSION"],
+      "matchPackagePatterns": ["(?i)^helm$"],
       "packageName": "helm/helm"
     },
     {
-      "matchPackageNames": ["ORA_VERSION"],
+      "matchPackagePatterns": ["(?i)^ora$"],
       "packageName": "oras-project/oras"
     },
     {
-      "matchPackageNames": ["KIND_VERSION"],
+      "matchPackagePatterns": ["(?i)^kind$"],
       "packageName": "kubernetes-sigs/kind"
     },
     {
-      "matchPackageNames": ["DOCKER_VERSION"],
+      "matchPackagePatterns": ["(?i)^docker$"],
       "packageName": "moby/moby"
     },
     {
-      "matchPackageNames": ["DOCKER_BUILDX_VERSION"],
+      "matchPackagePatterns": ["(?i)^docker_buildx$"],
       "packageName": "docker/buildx"
     },
     {
-      "matchPackageNames": ["K3D_VERSION"],
+      "matchPackagePatterns": ["(?i)^k3d$"],
       "packageName": "k3d-io/k3d"
     },
     {
-      "matchPackageNames": ["OP_VERSION"],
+      "matchPackagePatterns": ["(?i)^op$"],
       "packageName": "1Password/op"
     },
     {
-      "matchPackageNames": ["LULA_VERSION"],
+      "matchPackagePatterns": ["(?i)^lula$"],
       "packageName": "defenseunicorns/lula"
     },
     {
-      "matchPackageNames": ["UDS_VERSION"],
+      "matchPackagePatterns": ["(?i)^uds$"],
       "packageName": "defenseunicorns/uds-cli"
     },
     {
-      "matchPackageNames": ["ZARF_VERSION"],
+      "matchPackagePatterns": ["(?i)^zarf$"],
       "packageName": "zarf-dev/zarf"
     },
     {
-      "matchPackageNames": ["GH_VERSION"],
+      "matchPackagePatterns": ["(?i)^gh$"],
       "packageName": "cli/cli"
     }
   ]
