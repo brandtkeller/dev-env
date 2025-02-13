@@ -7,65 +7,65 @@
     {
       "fileMatch": ["Dockerfile"],
       "matchStrings": ["ARG (?<depName>[A-Z_]+)_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
-      "depNameTemplate": "{{depName}}",
+      "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["KUBE_VERSION"],
+      "matchPackagePatterns": ["KUBE_VERSION"],
       "datasource": "github-releases",
-      "depName": "kubernetes/kubernetes"
+      "packageName": "kubernetes/kubernetes"
     },
     {
-      "matchPackageNames": ["HELM_VERSION"],
+      "matchPackagePatterns": ["HELM_VERSION"],
       "datasource": "github-releases",
-      "depName": "helm/helm"
+      "packageName": "helm/helm"
     },
     {
-      "matchPackageNames": ["ORA_VERSION"],
+      "matchPackagePatterns": ["ORA_VERSION"],
       "datasource": "github-releases",
-      "depName": "oras-project/oras"
+      "packageName": "oras-project/oras"
     },
     {
-      "matchPackageNames": ["KIND_VERSION"],
+      "matchPackagePatterns": ["KIND_VERSION"],
       "datasource": "github-releases",
-      "depName": "kubernetes-sigs/kind"
+      "packageName": "kubernetes-sigs/kind"
     },
     {
-      "matchPackageNames": ["DOCKER_VERSION"],
+      "matchPackagePatterns": ["DOCKER_VERSION"],
       "datasource": "github-releases",
-      "depName": "moby/moby"
+      "packageName": "moby/moby"
     },
     {
-      "matchPackageNames": ["K3D_VERSION"],
+      "matchPackagePatterns": ["K3D_VERSION"],
       "datasource": "github-releases",
-      "depName": "k3d-io/k3d"
+      "packageName": "k3d-io/k3d"
     },
     {
-      "matchPackageNames": ["OP_VERSION"],
+      "matchPackagePatterns": ["OP_VERSION"],
       "datasource": "github-releases",
-      "depName": "1Password/op"
+      "packageName": "1Password/op"
     },
     {
-      "matchPackageNames": ["LULA_VERSION"],
+      "matchPackagePatterns": ["LULA_VERSION"],
       "datasource": "github-releases",
-      "depName": "defenseunicorns/lula"
+      "packageName": "defenseunicorns/lula"
     },
     {
-      "matchPackageNames": ["UDS_VERSION"],
+      "matchPackagePatterns": ["UDS_VERSION"],
       "datasource": "github-releases",
-      "depName": "defenseunicorns/uds-cli"
+      "packageName": "defenseunicorns/uds-cli"
     },
     {
-      "matchPackageNames": ["ZARF_VERSION"],
+      "matchPackagePatterns": ["ZARF_VERSION"],
       "datasource": "github-releases",
-      "depName": "defenseunicorns/zarf"
+      "packageName": "defenseunicorns/zarf"
     },
     {
-      "matchPackageNames": ["GH_VERSION"],
+      "matchPackagePatterns": ["GH_VERSION"],
       "datasource": "github-releases",
-      "depName": "cli/cli"
+      "packageName": "cli/cli"
     }
   ]
 }
