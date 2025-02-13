@@ -6,54 +6,56 @@
   "regexManagers": [
     {
       "fileMatch": ["Dockerfile"],
-      "matchStrings": ["ARG (?<depName>[A-Z_]+)_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"],
+      "matchStrings": [
+        "ARG (?<packageName>[A-Z_]+)_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"
+      ],
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
     }
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": ["KUBE_VERSION"],
+      "matchPackageNames": ["KUBE_VERSION"],
       "packageName": "kubernetes/kubernetes"
     },
     {
-      "matchPackagePatterns": ["HELM_VERSION"],
+      "matchPackageNames": ["HELM_VERSION"],
       "packageName": "helm/helm"
     },
     {
-      "matchPackagePatterns": ["ORA_VERSION"],
+      "matchPackageNames": ["ORA_VERSION"],
       "packageName": "oras-project/oras"
     },
     {
-      "matchPackagePatterns": ["KIND_VERSION"],
+      "matchPackageNames": ["KIND_VERSION"],
       "packageName": "kubernetes-sigs/kind"
     },
     {
-      "matchPackagePatterns": ["DOCKER_VERSION"],
+      "matchPackageNames": ["DOCKER_VERSION"],
       "packageName": "moby/moby"
     },
     {
-      "matchPackagePatterns": ["K3D_VERSION"],
+      "matchPackageNames": ["K3D_VERSION"],
       "packageName": "k3d-io/k3d"
     },
     {
-      "matchPackagePatterns": ["OP_VERSION"],
+      "matchPackageNames": ["OP_VERSION"],
       "packageName": "1Password/op"
     },
     {
-      "matchPackagePatterns": ["LULA_VERSION"],
+      "matchPackageNames": ["LULA_VERSION"],
       "packageName": "defenseunicorns/lula"
     },
     {
-      "matchPackagePatterns": ["UDS_VERSION"],
+      "matchPackageNames": ["UDS_VERSION"],
       "packageName": "defenseunicorns/uds-cli"
     },
     {
-      "matchPackagePatterns": ["ZARF_VERSION"],
-      "packageName": "defenseunicorns/zarf"
+      "matchPackageNames": ["ZARF_VERSION"],
+      "packageName": "zarf-dev/zarf"
     },
     {
-      "matchPackagePatterns": ["GH_VERSION"],
+      "matchPackageNames": ["GH_VERSION"],
       "packageName": "cli/cli"
     }
   ]
