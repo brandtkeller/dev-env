@@ -7,7 +7,7 @@
     {
       "fileMatch": ["Dockerfile"],
       "matchStrings": [
-        "ARG (?<packageName>[A-Z_]+)_VERSION=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"
+        "ARG (?<packageName>[A-Z_]+_VERSION)=['\"]?(?<currentValue>v?\\d+\\.\\d+\\.\\d+)['\"]?"
       ],
       "datasourceTemplate": "github-releases",
       "versioningTemplate": "semver"
