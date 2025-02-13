@@ -15,47 +15,47 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["KUBE_VERSION"],
+      "matchPackagePatterns": ["(?i)^KUBE_VERSION$"],
       "packageName": "kubernetes/kubernetes"
     },
     {
-      "matchPackageNames": ["HELM_VERSION"],
+      "matchPackagePatterns": ["(?i)^HELM_VERSION$"],
       "packageName": "helm/helm"
     },
     {
-      "matchPackageNames": ["ORA_VERSION"],
+      "matchPackagePatterns": ["(?i)^ORA_VERSION$"],
       "packageName": "oras-project/oras"
     },
     {
-      "matchPackageNames": ["KIND_VERSION"],
+      "matchPackagePatterns": ["(?i)^KIND_VERSION$"],
       "packageName": "kubernetes-sigs/kind"
     },
     {
-      "matchPackageNames": ["DOCKER_VERSION"],
+      "matchPackagePatterns": ["(?i)^DOCKER_VERSION$"],
       "packageName": "moby/moby"
     },
     {
-      "matchPackageNames": ["K3D_VERSION"],
+      "matchPackagePatterns": ["(?i)^K3D_VERSION$"],
       "packageName": "k3d-io/k3d"
     },
     {
-      "matchPackageNames": ["OP_VERSION"],
+      "matchPackagePatterns": ["(?i)^OP_VERSION$"],
       "packageName": "1Password/op"
     },
     {
-      "matchPackageNames": ["LULA_VERSION"],
+      "matchPackagePatterns": ["(?i)^LULA_VERSION$"],
       "packageName": "defenseunicorns/lula"
     },
     {
-      "matchPackageNames": ["UDS_VERSION"],
+      "matchPackagePatterns": ["(?i)^UDS_VERSION$"],
       "packageName": "defenseunicorns/uds-cli"
     },
     {
-      "matchPackageNames": ["ZARF_VERSION"],
-      "packageName": "zarf-dev/zarf"
+      "matchPackagePatterns": ["(?i)^ZARF_VERSION$"],
+      "packageName": "defenseunicorns/zarf"
     },
     {
-      "matchPackageNames": ["GH_VERSION"],
+      "matchPackagePatterns": ["(?i)^GH_VERSION$"],
       "packageName": "cli/cli"
     }
   ]
