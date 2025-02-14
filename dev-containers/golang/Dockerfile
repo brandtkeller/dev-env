@@ -7,11 +7,6 @@ ARG ALT_ARCH="x86_64"
 
 USER root
 
-RUN apt install -y pre-commit
-
-#TODO: install pre-commit by version
-RUN python3 -m pip install --upgrade pre-commit
-
 ENV GO_VERSION='1.23.6'
 
 # Golang - https://go.dev/dl/
