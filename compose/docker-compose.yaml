@@ -1,7 +1,6 @@
 services:
   go-dev:
     restart: always
-    command: sleep infinity
     image: dev-go:latest
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"

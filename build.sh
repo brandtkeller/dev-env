@@ -27,7 +27,7 @@ docker build --no-cache -f dev-containers/cli/Dockerfile --build-arg TAG=$DATE -
 docker build --no-cache -f dev-containers/golang/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
 
 # Build the python image
-docker build --no-cache -f dev-containers/python/Dockerfile --build-arg TAG=$DATE -t dev-python:latest -t dev-python:$DATE .
+# docker build --no-cache -f dev-containers/python/Dockerfile --build-arg TAG=$DATE -t dev-python:latest -t dev-python:$DATE .
 
 # Build the node image
-docker build --no-cache -f dev-containers/node/Dockerfile --build-arg TAG=$DATE -t dev-node:latest -t dev-node:$DATE .
+# docker build --no-cache -f dev-containers/node/Dockerfile --build-arg TAG=$DATE -t dev-node:latest -t dev-node:$DATE .
