@@ -22,5 +22,5 @@ echo "Rebuilding container images"
 
 # Start new services
 echo "Starting new services"
-docker compose --project-directory compose/ up go-dev -d
+docker compose --project-directory compose/ up go-dev node-dev -d
 
