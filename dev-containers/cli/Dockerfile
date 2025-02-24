@@ -67,7 +67,7 @@ RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker
 
 RUN curl -LO "https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${ARCH}" && \
   mkdir -p /home/dev/.docker/cli-plugins && \
-  mv buildx-v0.20.1.linux-amd64 /home/dev/.docker/cli-plugins/docker-buildx && \
+  mv buildx-v0.20.1.linux-${ARCH} /home/dev/.docker/cli-plugins/docker-buildx && \
   chmod +x /home/dev/.docker/cli-plugins/docker-buildx && \
   chown dev:dev /home/dev/.docker
 
