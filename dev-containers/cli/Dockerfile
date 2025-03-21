@@ -10,16 +10,16 @@ USER root
 WORKDIR /
 
 ARG KUBE_VERSION="v1.32.0"
-ARG HELM_VERSION="v3.17.1"
+ARG HELM_VERSION="v3.17.2"
 ARG ORA_VERSION="1.2.2"
 ARG KIND_VERSION="v0.27.0"
-ARG DOCKER_VERSION="27.5.1"
-ARG DOCKER_BUILDX_VERSION="v0.20.1"
+ARG DOCKER_VERSION="28.0.2"
+ARG DOCKER_BUILDX_VERSION="v0.22.0"
 ARG K3D_VERSION="v5.8.3"
 ARG OP_VERSION="v2.30.3"
 ARG LULA_VERSION="v0.15.0"
 ARG UDS_VERSION="v0.23.0"
-ARG ZARF_VERSION="v0.49.1"
+ARG ZARF_VERSION="v0.50.0"
 ARG GH_VERSION="2.67.0"
 
 ENV KUBE_VERSION=${KUBE_VERSION} \
@@ -65,6 +65,7 @@ RUN curl -LO "https://download.docker.com/linux/static/stable/${ALT_ARCH}/docker
   touch /var/run/docker.sock && \
   setfacl -m u:dev:rw /var/run/docker.sock
 
+ # Docker Buildx -  https://github.com/docker/buildx/releases
 RUN curl -LO "https://github.com/docker/buildx/releases/download/${DOCKER_BUILDX_VERSION}/buildx-${DOCKER_BUILDX_VERSION}.linux-${ARCH}" && \
   mkdir -p /home/dev/.docker/cli-plugins && \
   mv buildx-v0.20.1.linux-${ARCH} /home/dev/.docker/cli-plugins/docker-buildx && \
