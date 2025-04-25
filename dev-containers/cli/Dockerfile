@@ -9,19 +9,20 @@ ARG ALT_ARCH="x86_64"
 USER root
 WORKDIR /
 
-ARG KUBE_VERSION="v1.32.0"
-ARG HELM_VERSION="v3.17.2"
+ARG KUBE_VERSION="v1.33.0"
+ARG HELM_VERSION="v3.17.3"
 ARG ORA_VERSION="1.2.2"
 ARG KIND_VERSION="v0.27.0"
-ARG DOCKER_VERSION="28.0.2"
-ARG DOCKER_BUILDX_VERSION="v0.22.0"
+ARG DOCKER_VERSION="28.1.1"
+ARG DOCKER_BUILDX_VERSION="v0.23.0"
 ARG K3D_VERSION="v5.8.3"
 ARG OP_VERSION="v2.30.3"
 ARG LULA_VERSION="v0.15.0"
-ARG UDS_VERSION="v0.23.0"
-ARG ZARF_VERSION="v0.52.1"
-ARG GH_VERSION="2.67.0"
+ARG UDS_VERSION="v0.27.1"
+ARG ZARF_VERSION="v0.53.0"
+ARG GH_VERSION="2.71.2"
 ARG GORELEASER_VERSION="v2.8.2"
+ARG HUGO_VERSION="0.147.0"
 
 ENV KUBE_VERSION=${KUBE_VERSION} \
     HELM_VERSION=${HELM_VERSION} \
@@ -35,7 +36,8 @@ ENV KUBE_VERSION=${KUBE_VERSION} \
     UDS_VERSION=${UDS_VERSION} \
     ZARF_VERSION=${ZARF_VERSION} \
     GH_VERSION=${GH_VERSION} \
-    GORELEASER_VERSION=${GORELEASER_VERSION}
+    GORELEASER_VERSION=${GORELEASER_VERSION} \
+    HUGO_VERSION=${HUGO_VERSION}
 
 RUN apt install -y curl acl unzip wget rclone rsync
 
@@ -120,13 +122,20 @@ RUN curl -LO "https://github.com/cli/cli/releases/download/v${GH_VERSION}/gh_${G
   rm -rf gh_${GH_VERSION}_linux_${ARCH}.tar.gz && \
   rm -rf gh_${GH_VERSION}_linux_${ARCH}
 
-# GoReleaser - 
+# GoReleaser - https://github.com/goreleaser/goreleaser/releases
 RUN if [[ $ALT_ARCH -eq "aarch64" ]]; then $ALT_ARCH="arm64"; fi && \
   curl -LO "https://github.com/goreleaser/goreleaser/releases/download/${GORELEASER_VERSION}/goreleaser_Linux_${ALT_ARCH}.tar.gz" && \
   tar -zxf goreleaser_Linux_${ALT_ARCH}.tar.gz && \
   mv goreleaser /usr/local/bin/goreleaser && \
   rm goreleaser_Linux_${ALT_ARCH}.tar.gz LICENSE README.md && \
   rm -rf completions
+
+
+# hugo - https://github.com/gohugoio/hugo/releases
+RUN curl -LO "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-${ARCH}.tar.gz" && \
+  tar -zxvf hugo_${HUGO_VERSION}_linux-${ARCH}.tar.gz && \
+  mv hugo /usr/local/bin/hugo && \
+  rm hugo_${HUGO_VERSION}_linux-${ARCH}.tar.gz LICENSE README.md
 
 RUN echo '\nalias docker_sock="sudo setfacl -m u:dev:rw /var/run/docker.sock"'>> /home/dev/.bashrc
 RUN echo '\nalias k="kubectl"'>> /home/dev/.bashrc
