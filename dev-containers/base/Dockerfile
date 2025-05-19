@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-RUN apt update && apt install -y git build-essential vim jq pre-commit
+RUN apt update && apt install -y git build-essential vim jq pre-commit tree
 
 #TODO: install pre-commit by version
 RUN python3 -m pip install --upgrade pre-commit
