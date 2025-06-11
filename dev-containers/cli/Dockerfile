@@ -23,6 +23,7 @@ ARG ZARF_VERSION="v0.55.6"
 ARG GH_VERSION="2.71.2"
 ARG GORELEASER_VERSION="v2.8.2"
 ARG HUGO_VERSION="0.147.0"
+ARG COSIGN_VERSION="2.5.0"
 
 ENV KUBE_VERSION=${KUBE_VERSION} \
     HELM_VERSION=${HELM_VERSION} \
@@ -37,7 +38,8 @@ ENV KUBE_VERSION=${KUBE_VERSION} \
     ZARF_VERSION=${ZARF_VERSION} \
     GH_VERSION=${GH_VERSION} \
     GORELEASER_VERSION=${GORELEASER_VERSION} \
-    HUGO_VERSION=${HUGO_VERSION}
+    HUGO_VERSION=${HUGO_VERSION} \
+    COSIGN_VERSION=${COSIGN_VERSION}
 
 RUN apt install -y curl acl unzip wget rclone rsync
 
@@ -55,6 +57,11 @@ RUN curl -LO "https://get.helm.sh/helm-${HELM_VERSION}-linux-${ARCH}.tar.gz" && 
 RUN curl -LO "https://github.com/oras-project/oras/releases/download/v${ORA_VERSION}/oras_${ORA_VERSION}_linux_${ARCH}.tar.gz" && \
   tar -zxvf oras_${ORA_VERSION}_linux_${ARCH}.tar.gz && \
   mv oras /usr/local/bin/oras
+
+# cosign - https://github.com/sigstore/cosign/releases
+RUN curl -LO "https://github.com/sigstore/cosign/releases/download/v${COSIGN_VERSION}/cosign-linux-${ARCH}" && \
+  chmod +x cosign-linux-${ARCH} && \
+  mv cosign-linux-${ARCH} /usr/local/bin/cosign
 
 # Kind - https://github.com/kubernetes-sigs/kind/releases
 RUN curl -Lo ./kind "https://github.com/kubernetes-sigs/kind/releases/download/${KIND_VERSION}/kind-linux-${ARCH}" && \
