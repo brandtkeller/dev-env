@@ -24,7 +24,11 @@ docker build --no-cache -f dev-containers/base/Dockerfile -t dev-base:latest -t 
 docker build --no-cache -f dev-containers/cli/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-cli:latest -t dev-cli:$DATE .
 
 # Build the golang image
-docker build --no-cache -f dev-containers/golang/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
+if [ "$ARCH" = "amd64" ]; then
+  docker build --no-cache -f dev-containers/golang/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
+else
+  docker build --no-cache -f dev-containers/golang/Dockerfile.arm64 --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
+fi
 
 # Build the python image
 # docker build --no-cache -f dev-containers/python/Dockerfile --build-arg TAG=$DATE -t dev-python:latest -t dev-python:$DATE .

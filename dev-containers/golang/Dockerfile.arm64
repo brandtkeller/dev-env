@@ -2,8 +2,8 @@ ARG TAG="latest"
 
 FROM dev-cli:$TAG
 
-ARG ARCH="amd64"
-ARG ALT_ARCH="x86_64"
+ARG ARCH="arm64"
+ARG ALT_ARCH="aarch64"
 
 USER root
 
@@ -11,7 +11,7 @@ ARG GO_VERSION="1.24.4"
 ARG GORELEASER_VERSION="v2.10.2"
 
 ENV GO_VERSION=${GO_VERSION} \
-    GORELEASER_VERSION=${GORELEASER_VERSION}  
+  GORELEASER_VERSION=${GORELEASER_VERSION}
 
 # Golang - https://go.dev/dl/
 RUN curl -LO https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz && \
@@ -21,10 +21,10 @@ RUN curl -LO https://go.dev/dl/go${GO_VERSION}.linux-${ARCH}.tar.gz && \
 ENV PATH="${PATH}:/usr/local/go/bin:/home/dev/go/bin"
 
 # GoReleaser - https://github.com/goreleaser/goreleaser/releases
-RUN curl -LO "https://github.com/goreleaser/goreleaser/releases/download/${GORELEASER_VERSION}/goreleaser_Linux_${ALT_ARCH}.tar.gz" && \
-  tar -zxf goreleaser_Linux_${ALT_ARCH}.tar.gz && \
+RUN curl -LO "https://github.com/goreleaser/goreleaser/releases/download/${GORELEASER_VERSION}/goreleaser_Linux_${ARCH}.tar.gz" && \
+  tar -zxf goreleaser_Linux_${ARCH}.tar.gz && \
   mv goreleaser /usr/local/bin/goreleaser && \
-  rm goreleaser_Linux_${ALT_ARCH}.tar.gz LICENSE README.md && \
+  rm goreleaser_Linux_${ARCH}.tar.gz LICENSE README.md && \
   rm -rf completions
 
 # Dev environment setup scripts
