@@ -24,8 +24,8 @@ ENV PATH="${PATH}:/usr/local/go/bin:/home/dev/go/bin"
 RUN curl -LO "https://github.com/goreleaser/goreleaser/releases/download/${GORELEASER_VERSION}/goreleaser_Linux_${ALT_ARCH}.tar.gz" && \
   tar -zxf goreleaser_Linux_${ALT_ARCH}.tar.gz && \
   mv goreleaser /usr/local/bin/goreleaser && \
-  rm goreleaser_Linux_${ALT_ARCH}.tar.gz LICENSE README.md && \
-  rm -rf completions
+  rm goreleaser_Linux_${ALT_ARCH}.tar.gz LICENSE.md README.md && \
+  rm -rf completions manpages
 
 # Dev environment setup scripts
 COPY dev-containers/golang/dev.sh /home/dev/
