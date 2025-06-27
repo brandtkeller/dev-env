@@ -10,19 +10,18 @@ USER root
 WORKDIR /
 
 ARG KUBE_VERSION="v1.33.0"
-ARG HELM_VERSION="v3.18.2"
+ARG HELM_VERSION="v3.18.3"
 ARG ORA_VERSION="1.2.3"
 ARG KIND_VERSION="v0.29.0"
-ARG DOCKER_VERSION="28.2.2"
-ARG DOCKER_BUILDX_VERSION="v0.24.0"
+ARG DOCKER_VERSION="28.3.0"
+ARG DOCKER_BUILDX_VERSION="v0.25.0"
 ARG K3D_VERSION="v5.8.3"
 ARG OP_VERSION="v2.31.1"
-ARG LULA_VERSION="v0.15.0"
-ARG UDS_VERSION="v0.27.6"
-ARG ZARF_VERSION="v0.56.0"
-ARG GH_VERSION="2.74.1"
-ARG HUGO_VERSION="0.147.8"
-ARG COSIGN_VERSION="2.5.0"
+ARG UDS_VERSION="v0.27.7"
+ARG ZARF_VERSION="v0.57.0"
+ARG GH_VERSION="2.74.2"
+ARG HUGO_VERSION="0.147.9"
+ARG COSIGN_VERSION="2.5.2"
 
 ENV KUBE_VERSION=${KUBE_VERSION} \
     HELM_VERSION=${HELM_VERSION} \
@@ -32,7 +31,6 @@ ENV KUBE_VERSION=${KUBE_VERSION} \
     DOCKER_BUILDX_VERSION=${DOCKER_BUILDX_VERSION} \
     K3D_VERSION=${K3D_VERSION} \
     OP_VERSION=${OP_VERSION} \
-    LULA_VERSION=${LULA_VERSION} \
     UDS_VERSION=${UDS_VERSION} \
     ZARF_VERSION=${ZARF_VERSION} \
     GH_VERSION=${GH_VERSION} \
@@ -87,12 +85,6 @@ RUN curl -LO "https://github.com/k3d-io/k3d/releases/download/${K3D_VERSION}/k3d
   chmod +x k3d && \
   mv k3d /usr/local/bin/k3d
 
-# AWS CLI - 
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-${ALT_ARCH}.zip" -o "awscliv2.zip" && \
-  unzip awscliv2.zip && \
-  ./aws/install && \
-  rm -rf awscliv2.zip aws
-
 # 1password CLI - https://developer.1password.com/docs/cli/get-started/
 RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_VERSION}/op_linux_${ARCH}_${OP_VERSION}.zip" -O op.zip && \
   unzip -d op op.zip && \
@@ -101,12 +93,6 @@ RUN wget "https://cache.agilebits.com/dist/1P/op2/pkg/${OP_VERSION}/op_linux_${A
   groupadd -f onepassword-cli && \
   chgrp onepassword-cli /usr/local/bin/op && \
   chmod g+s /usr/local/bin/op
-
-# Lula
-RUN curl -LO "https://github.com/defenseunicorns/lula/releases/download/${LULA_VERSION}/lula_${LULA_VERSION}_Linux_${ARCH}" && \
-  mv lula_${LULA_VERSION}_Linux_${ARCH} lula && \
-  chmod +x lula && \
-  mv lula /usr/local/bin/lula
 
 # UDS-CLI - https://github.com/defenseunicorns/uds-cli/releases
 RUN curl -LO "https://github.com/defenseunicorns/uds-cli/releases/download/${UDS_VERSION}/uds-cli_${UDS_VERSION}_Linux_${ARCH}" && \
