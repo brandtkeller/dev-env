@@ -29,7 +29,7 @@ ARG DEVENV_OP_VERSION="v2.31.1"
 # UDS-CLI - https://github.com/defenseunicorns/uds-cli/releases
 ARG DEVENV_UDS_VERSION="v0.27.9"
 # Zarf - https://github.com/zarf-dev/zarf/releases
-ARG DEVENV_ZARF_VERSION="v0.58.0"
+ARG DEVENV_ZARF_VERSION="v0.59.0"
 # Github CLI - https://github.com/cli/cli/releases
 ARG DEVENV_GH_VERSION="2.75.1"
 # hugo - https://github.com/gohugoio/hugo/releases
