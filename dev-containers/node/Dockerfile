@@ -7,7 +7,7 @@ ARG ALT_ARCH="x86_64"
 
 USER root
 # https://github.com/nvm-sh/nvm/releases
-ENV NVM_VERSION='v0.40.1'
+ENV NVM_VERSION='v0.40.3'
 
 # Dev environment setup scripts
 COPY dev-containers/node/dev.sh /home/dev/
@@ -21,8 +21,8 @@ USER dev
 # Install NVM
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/${NVM_VERSION}/install.sh | bash && \
   export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
-  nvm install lts/iron && \
-  nvm use lts/iron
+  nvm install lts/jod && \
+  nvm use lts/jod
 
 RUN mkdir -p /home/dev/work
 
