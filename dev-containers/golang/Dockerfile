@@ -36,7 +36,7 @@ RUN echo '\nalias dev_setup="/home/dev/dev.sh"' >> /home/dev/.bashrc
 
 USER dev
 
-RUN go install github.com/go-delve/delve/cmd/dlv@v1.24.2 && go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.1.6 && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 && go install golang.org/x/tools/cmd/goimports@v0.35.0
+RUN go install github.com/go-delve/delve/cmd/dlv@v1.25.1 && go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.4.0 && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 && go install golang.org/x/tools/cmd/goimports@v0.36.0
 
 RUN mkdir -p /home/dev/work
 
