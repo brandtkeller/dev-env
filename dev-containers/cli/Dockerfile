@@ -11,29 +11,29 @@ ARG ALT_ARCH="x86_64"
 # tool versions (prefixed to avoid Viper)
 # -----------------------------------------
 # https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
-ARG DEVENV_KUBE_VERSION="v1.33.0"
+ARG DEVENV_KUBE_VERSION="v1.34.0"
 # helm - https://github.com/helm/helm/releases  
-ARG DEVENV_HELM_VERSION="v3.18.5"
+ARG DEVENV_HELM_VERSION="v3.18.6"
 # oras - https://github.com/oras-project/oras/releases
-ARG DEVENV_ORAS_VERSION="1.2.3"
+ARG DEVENV_ORAS_VERSION="1.3.0"
 # Kind - https://github.com/kubernetes-sigs/kind/releases
-ARG DEVENV_KIND_VERSION="v0.29.0"
+ARG DEVENV_KIND_VERSION="v0.30.0"
 # Docker CLI - https://download.docker.com/linux/static/stable
-ARG DEVENV_DOCKER_VERSION="28.3.3"
+ARG DEVENV_DOCKER_VERSION="28.4.0"
 # Docker Buildx -  https://github.com/docker/buildx/releases
-ARG DEVENV_DOCKER_BUILDX_VERSION="v0.26.1"
+ARG DEVENV_DOCKER_BUILDX_VERSION="v0.28.0"
 # K3d - https://github.com/k3d-io/k3d/releases
 ARG DEVENV_K3D_VERSION="v5.8.3"
 # 1password CLI - https://developer.1password.com/docs/cli/get-started/
-ARG DEVENV_OP_VERSION="v2.31.1"
+ARG DEVENV_OP_VERSION="v2.32.0"
 # UDS-CLI - https://github.com/defenseunicorns/uds-cli/releases
-ARG DEVENV_UDS_VERSION="v0.27.11"
+ARG DEVENV_UDS_VERSION="v0.27.13"
 # Zarf - https://github.com/zarf-dev/zarf/releases
-ARG DEVENV_ZARF_VERSION="v0.61.0"
+ARG DEVENV_ZARF_VERSION="v0.61.2"
 # Github CLI - https://github.com/cli/cli/releases
-ARG DEVENV_GH_VERSION="2.76.2"
+ARG DEVENV_GH_VERSION="2.79.0"
 # hugo - https://github.com/gohugoio/hugo/releases
-ARG DEVENV_HUGO_VERSION="0.148.2"
+ARG DEVENV_HUGO_VERSION="0.150.0"
 # cosign - https://github.com/sigstore/cosign/releases
 ARG DEVENV_COSIGN_VERSION="2.5.3"
 

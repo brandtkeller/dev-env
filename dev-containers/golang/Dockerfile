@@ -7,8 +7,8 @@ ARG ALT_ARCH="x86_64"
 
 USER root
 
-ARG GO_VERSION="1.25.0"
-ARG GORELEASER_VERSION="v2.11.2"
+ARG GO_VERSION="1.25.1"
+ARG GORELEASER_VERSION="v2.12.0"
 
 ENV GO_VERSION=${GO_VERSION} \
     GORELEASER_VERSION=${GORELEASER_VERSION}  
@@ -36,7 +36,12 @@ RUN echo '\nalias dev_setup="/home/dev/dev.sh"' >> /home/dev/.bashrc
 
 USER dev
 
-RUN go install github.com/go-delve/delve/cmd/dlv@v1.25.1 && go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.4.0 && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 && go install golang.org/x/tools/cmd/goimports@v0.36.0
+# Delve - https://github.com/go-delve/delve
+# GolangCI - https://github.com/golangci/golangci-lint
+# Vulncheck - https://github.com/golang/vuln
+# Goimports - https://pkg.go.dev/golang.org/x/tools/cmd/goimports
+
+RUN go install github.com/go-delve/delve/cmd/dlv@v1.25.2 && go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@v2.4.0 && go install golang.org/x/vuln/cmd/govulncheck@v1.1.4 && go install golang.org/x/tools/cmd/goimports@v0.36.0
 
 RUN mkdir -p /home/dev/work
 
