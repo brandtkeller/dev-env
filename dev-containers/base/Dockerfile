@@ -20,4 +20,7 @@ USER dev
 
 WORKDIR /home/dev
 
+# Dev environment setup scripts
+COPY dev-containers/base/claude.md /home/dev/work/
+
 ENV SHELL=/bin/bash
