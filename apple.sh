@@ -132,7 +132,6 @@ run_dev_container() {
         --cpus 10 \
         --memory 32g \
         -e DOCKER_HOST=tcp://192.168.64.1:2375 \
-        -v /var/run/docker.sock:/var/run/docker.sock \
         -v "$HOME/.config:/home/dev/.config" \
         -v "$HOME/.claude:/home/dev/.claude" \
         --restart unless-stopped \
