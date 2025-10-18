@@ -27,15 +27,15 @@ ARG DEVENV_K3D_VERSION="v5.8.3"
 # 1password CLI - https://developer.1password.com/docs/cli/get-started/
 ARG DEVENV_OP_VERSION="v2.32.0"
 # UDS-CLI - https://github.com/defenseunicorns/uds-cli/releases
-ARG DEVENV_UDS_VERSION="v0.27.13"
+ARG DEVENV_UDS_VERSION="v0.27.16"
 # Zarf - https://github.com/zarf-dev/zarf/releases
-ARG DEVENV_ZARF_VERSION="v0.63.0"
+ARG DEVENV_ZARF_VERSION="v0.64.0"
 # Github CLI - https://github.com/cli/cli/releases
 ARG DEVENV_GH_VERSION="2.79.0"
 # hugo - https://github.com/gohugoio/hugo/releases
 ARG DEVENV_HUGO_VERSION="0.150.0"
 # cosign - https://github.com/sigstore/cosign/releases
-ARG DEVENV_COSIGN_VERSION="2.6.1"
+ARG DEVENV_COSIGN_VERSION="3.0.1"
 
 # Expose them inside the image (optional—remove if you don’t
 # need access at runtime and want zero chance of collision).
