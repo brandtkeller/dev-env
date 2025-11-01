@@ -10,8 +10,6 @@ ARG ALT_ARCH="x86_64"
 # -----------------------------------------
 # tool versions (prefixed to avoid Viper)
 # -----------------------------------------
-# https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/#install-kubectl-binary-with-curl-on-linux
-ARG DEVENV_KUBE_VERSION="v1.34.0"
 # helm - https://github.com/helm/helm/releases  
 ARG DEVENV_HELM_VERSION="v3.18.6"
 # oras - https://github.com/oras-project/oras/releases
@@ -29,18 +27,17 @@ ARG DEVENV_OP_VERSION="v2.32.0"
 # UDS-CLI - https://github.com/defenseunicorns/uds-cli/releases
 ARG DEVENV_UDS_VERSION="v0.27.16"
 # Zarf - https://github.com/zarf-dev/zarf/releases
-ARG DEVENV_ZARF_VERSION="v0.64.0"
+ARG DEVENV_ZARF_VERSION="v0.65.1"
 # Github CLI - https://github.com/cli/cli/releases
 ARG DEVENV_GH_VERSION="2.79.0"
 # hugo - https://github.com/gohugoio/hugo/releases
 ARG DEVENV_HUGO_VERSION="0.150.0"
 # cosign - https://github.com/sigstore/cosign/releases
-ARG DEVENV_COSIGN_VERSION="3.0.1"
+ARG DEVENV_COSIGN_VERSION="3.0.2"
 
 # Expose them inside the image (optional—remove if you don’t
 # need access at runtime and want zero chance of collision).
 ENV \
-  DEVENV_KUBE_VERSION=${DEVENV_KUBE_VERSION} \
   DEVENV_HELM_VERSION=${DEVENV_HELM_VERSION} \
   DEVENV_ORAS_VERSION=${DEVENV_ORAS_VERSION} \
   DEVENV_KIND_VERSION=${DEVENV_KIND_VERSION} \
@@ -64,11 +61,7 @@ RUN apt-get update && \
     apt-get install -y curl acl unzip wget rclone rsync && \
     rm -rf /var/lib/apt/lists/*
 
-# kubectl
-RUN curl -LO "https://dl.k8s.io/release/${DEVENV_KUBE_VERSION}/bin/linux/${ARCH}/kubectl" && \
-    chmod +x kubectl && mv kubectl /usr/local/bin/
-
-# helm
+# helm (replace with zarf alias when available)
 RUN curl -LO "https://get.helm.sh/helm-${DEVENV_HELM_VERSION}-linux-${ARCH}.tar.gz" && \
     tar -zxvf helm-${DEVENV_HELM_VERSION}-linux-${ARCH}.tar.gz && \
     mv linux-${ARCH}/helm /usr/local/bin/ && rm -rf linux-${ARCH}
@@ -132,7 +125,9 @@ RUN curl -LO "https://github.com/gohugoio/hugo/releases/download/v${DEVENV_HUGO_
 # finish up
 # ----------------------------------------------------------
 RUN echo '\nalias docker_sock="sudo setfacl -m u:dev:rw /var/run/docker.sock"' >> /home/dev/.bashrc && \
-    echo '\nalias k="kubectl"' >> /home/dev/.bashrc
+    echo '\nalias kubectl="zarf tools kubectl"' >> /home/dev/.bashrc && \
+    echo '\nalias k="zarf tools kubectl"' >> /home/dev/.bashrc && \
+    echo '\nalias yq="zarf tools yq"' >> /home/dev/.bashrc
 
 USER dev
 RUN mkdir -p /home/dev/.config/op
