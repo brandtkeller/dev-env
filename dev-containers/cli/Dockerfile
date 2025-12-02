@@ -11,7 +11,7 @@ ARG ALT_ARCH="x86_64"
 # tool versions (prefixed to avoid Viper)
 # -----------------------------------------
 # helm - https://github.com/helm/helm/releases  
-ARG DEVENV_HELM_VERSION="v3.18.4"
+ARG DEVENV_HELM_VERSION="v4.0.1"
 # oras - https://github.com/oras-project/oras/releases
 ARG DEVENV_ORAS_VERSION="1.3.0"
 # Kind - https://github.com/kubernetes-sigs/kind/releases
