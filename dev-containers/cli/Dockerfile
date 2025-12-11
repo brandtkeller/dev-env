@@ -11,29 +11,29 @@ ARG ALT_ARCH="x86_64"
 # tool versions (prefixed to avoid Viper)
 # -----------------------------------------
 # helm - https://github.com/helm/helm/releases  
-ARG DEVENV_HELM_VERSION="v4.0.1"
+ARG DEVENV_HELM_VERSION="v3.19.2"
 # oras - https://github.com/oras-project/oras/releases
 ARG DEVENV_ORAS_VERSION="1.3.0"
 # Kind - https://github.com/kubernetes-sigs/kind/releases
 ARG DEVENV_KIND_VERSION="v0.30.0"
 # Docker CLI - https://download.docker.com/linux/static/stable
-ARG DEVENV_DOCKER_VERSION="29.0.0"
+ARG DEVENV_DOCKER_VERSION="29.1.2"
 # Docker Buildx -  https://github.com/docker/buildx/releases
-ARG DEVENV_DOCKER_BUILDX_VERSION="v0.30.0"
+ARG DEVENV_DOCKER_BUILDX_VERSION="v0.30.1"
 # K3d - https://github.com/k3d-io/k3d/releases
 ARG DEVENV_K3D_VERSION="v5.8.3"
 # 1password CLI - https://developer.1password.com/docs/cli/get-started/
 ARG DEVENV_OP_VERSION="v2.32.0"
 # UDS-CLI - https://github.com/defenseunicorns/uds-cli/releases
-ARG DEVENV_UDS_VERSION="v0.27.17"
+ARG DEVENV_UDS_VERSION="v0.27.20"
 # Zarf - https://github.com/zarf-dev/zarf/releases
-ARG DEVENV_ZARF_VERSION="v0.66.0"
+ARG DEVENV_ZARF_VERSION="v0.67.0"
 # Github CLI - https://github.com/cli/cli/releases
 ARG DEVENV_GH_VERSION="2.83.1"
 # hugo - https://github.com/gohugoio/hugo/releases
 ARG DEVENV_HUGO_VERSION="0.152.2"
 # cosign - https://github.com/sigstore/cosign/releases
-ARG DEVENV_COSIGN_VERSION="3.0.2"
+ARG DEVENV_COSIGN_VERSION="3.0.3"
 
 # Expose them inside the image (optional—remove if you don’t
 # need access at runtime and want zero chance of collision).

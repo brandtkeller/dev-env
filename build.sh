@@ -18,20 +18,20 @@ fi
 DATE=$(date '+%Y%m%d')
 
 # Build the base image
-docker build --no-cache -f dev-containers/base/Dockerfile -t dev-base:latest -t dev-base:$DATE .
+docker build --network=host --no-cache -f dev-containers/base/Dockerfile -t dev-base:latest -t dev-base:$DATE .
 
 # Build the CLI image
-docker build --no-cache -f dev-containers/cli/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-cli:latest -t dev-cli:$DATE .
+docker build --network=host --no-cache -f dev-containers/cli/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-cli:latest -t dev-cli:$DATE .
 
 # Build the golang image
 if [ "$ARCH" = "amd64" ]; then
-  docker build --no-cache -f dev-containers/golang/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
+  docker build --network=host --no-cache -f dev-containers/golang/Dockerfile --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
 else
-  docker build --no-cache -f dev-containers/golang/Dockerfile.arm64 --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
+  docker build --network=host --no-cache -f dev-containers/golang/Dockerfile.arm64 --build-arg TAG=$DATE --build-arg ARCH=$ARCH --build-arg ALT_ARCH=$ALTARCH -t dev-go:latest -t dev-go:$DATE .
 fi
 
 # Build the python image
-# docker build --no-cache -f dev-containers/python/Dockerfile --build-arg TAG=$DATE -t dev-python:latest -t dev-python:$DATE .
+# docker build --network=host --no-cache -f dev-containers/python/Dockerfile --build-arg TAG=$DATE -t dev-python:latest -t dev-python:$DATE .
 
 # Build the node image
-docker build --no-cache -f dev-containers/node/Dockerfile --build-arg TAG=$DATE -t dev-node:latest -t dev-node:$DATE .
+docker build --network=host --no-cache -f dev-containers/node/Dockerfile --build-arg TAG=$DATE -t dev-node:latest -t dev-node:$DATE .
