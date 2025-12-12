@@ -2,7 +2,7 @@
 
 # Ensure we are in the correct directory
 
-cd /home/dev/repos/dev-env/
+cd /home/dev/Repos/dev-env/
 
 # Pull latest changes from git
 echo "Pulling latest changes from git"
